@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-07-24T01:30:11 IST" name="Default suite" finished-at="2022-07-24T01:30:20 IST" duration-ms="9662">
+    <groups>
+    </groups>
+    <test started-at="2022-07-24T01:30:11 IST" name="Default test" finished-at="2022-07-24T01:30:20 IST" duration-ms="9662">
+      <class name="Project.End2End.SearchTestPractice">
+        <test-method is-config="true" signature="BrowserSteup()[pri:0, instance:Project.End2End.SearchTestPractice@d29f28]" started-at="2022-07-24T01:30:11 IST" name="BrowserSteup" finished-at="2022-07-24T01:30:20 IST" duration-ms="8918" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BrowserSteup -->
+        <test-method signature="SearchButton()[pri:0, instance:Project.End2End.SearchTestPractice@d29f28]" started-at="2022-07-24T01:30:20 IST" name="SearchButton" finished-at="2022-07-24T01:30:20 IST" duration-ms="158" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SearchButton -->
+        <test-method is-config="true" signature="BrowserClose()[pri:0, instance:Project.End2End.SearchTestPractice@d29f28]" started-at="2022-07-24T01:30:20 IST" name="BrowserClose" finished-at="2022-07-24T01:30:20 IST" duration-ms="471" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BrowserClose -->
+      </class> <!-- Project.End2End.SearchTestPractice -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
