@@ -13,13 +13,14 @@ public static WebDriver driver;
 	public  static void main(String[] args) throws IOException {
 	//	initializeDriver();
 	}
-	public  WebDriver initializeDriver() throws IOException {
+	public static  WebDriver initializeDriver() throws IOException {
 		// TODO Auto-generated method stub
 		Properties prop = new Properties();
 	//	FileInputStream fis= new FileInputStream("D:\\Eclipse\\CoreJavaPractice\\src\\data.properties");
 		FileInputStream fis= new FileInputStream("D:\\Eclipse\\End2End\\src\\main\\java\\Project\\End2End\\config.properties");
 		prop.load(fis);
 		String BrowserName = prop.getProperty("browser");
+			String URL=				prop.getProperty("url");
 		System.out.println(BrowserName);
 		if(BrowserName.equals("Chrome")) {
 			System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
