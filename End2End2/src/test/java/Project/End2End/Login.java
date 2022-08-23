@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
@@ -16,23 +17,39 @@ import ObjectsRepository.HomePageObjects;
 import ObjectsRepository.LoginPageObjects;
 
 public class Login extends BrowserInvocation{
-	
-	@Test(dataProvider="getData")
-	public void Login (String Email, String Password) throws IOException   {
+	public WebDriver driver;
+	@BeforeTest
+	public void Begin() throws IOException {
 		driver = initializeDriver();
-		driver.get("https://www.qaclickacademy.com/");
+//		driver.get(prop.getProperty("url"));
 		driver.manage().window().maximize();
+		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+	@Test(dataProvider="getData")
+	public void VerifyLogin(String Email, String Password) throws IOException   {
+		//driver = initializeDriver();
+		driver.get(prop.getProperty("url"));
+	//driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		HomePageObjects HP= new HomePageObjects(driver);
-		HP.AlertPopup().click();
+
+		//HP.SignIn().click();
 		System.out.println("Till now I am executed");
 		WebDriverWait wait = new WebDriverWait( driver, 10);
-		wait.until(ExpectedConditions.elementToBeClickable(HP.LoginPage())).click();
+		wait.until(ExpectedConditions.elementToBeClickable(HP.SignIn())).click();
+		if(HP.getPopupSize()>0)
+		{
+			HP.AlertPopup().click();
+		}
 		LoginPageObjects LP= new LoginPageObjects(driver);
-		LP.Email().sendKeys(Email);
-		LP.Password().sendKeys(Password);
-		LP.LoginButton().click();
+		LP.getEmail().sendKeys(Email);
+		LP.getPassword().sendKeys(Password);
+		LP.getLogin().click();
 
+	}
+	@AfterTest
+	public void tearDown() {
+		driver.close();
 	}
 	@DataProvider
 	public Object[][] getData() {

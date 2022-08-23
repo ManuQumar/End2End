@@ -5,8 +5,8 @@
     <classes>
       <class name="Project.End2End.Login">
         <methods>
-          <include name="Login" invocation-numbers="1"/>
-          <include name="LoginNavigationPage"/>
+          <include name="Begin"/>
+          <include name="VerifyLogin" invocation-numbers="0 1"/>
         </methods>
       </class> <!-- Project.End2End.Login -->
     </classes>
