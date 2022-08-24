@@ -64,23 +64,15 @@ public static  Properties prop ;
 
 		return driver;
 }
-	public String getScreenshot(String testCaseName , WebDriver driver) throws IOException {
+	public String getScreenshot() throws IOException {
 		Calendar calendar = Calendar.getInstance();
 
 		SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyy_hh_mm_ss");
 		TakesScreenshot TS= (TakesScreenshot)driver;
-		File Source=TS.getScreenshotAs(OutputType.FILE);
-				String destinationFile =	System.getProperty("user.dir")+"\\Reports\\"+testCaseName+".png";
+		File Source= TS.getScreenshotAs(OutputType.FILE);
+				String destinationFile =	System.getProperty("user.dir")+"\\reports\\"+formater.format(calendar.getTime())+"Manu"+".png";
 		FileUtils.copyFile(Source, new File(destinationFile));
 		return destinationFile;
 	}
 
 }
-
-
-
-
-
-
-
-
