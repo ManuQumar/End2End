@@ -64,15 +64,28 @@ public static  Properties prop ;
 
 		return driver;
 }
-	public String getScreenshot() throws IOException {
+	public String getScreenshot(String testCaseName,WebDriver driver) throws IOException
+	{
 		Calendar calendar = Calendar.getInstance();
 
 		SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyy_hh_mm_ss");
-		TakesScreenshot TS= (TakesScreenshot)driver;
-		File Source= TS.getScreenshotAs(OutputType.FILE);
-				String destinationFile =	System.getProperty("user.dir")+"\\reports\\"+formater.format(calendar.getTime())+"Manu"+".png";
-		FileUtils.copyFile(Source, new File(destinationFile));
+		TakesScreenshot TS=(TakesScreenshot) driver;
+		File source =TS.getScreenshotAs(OutputType.FILE);
+		String destinationFile =	System.getProperty("user.dir")+"\\reports\\"+testCaseName+formater.format(calendar.getTime())+"Manu"+".png";
+		FileUtils.copyFile(source,new File(destinationFile));
 		return destinationFile;
+
+
 	}
+//	public String getScreenshot(String testCaseName) throws IOException {
+//		Calendar calendar = Calendar.getInstance();
+//
+//		SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyy_hh_mm_ss");
+//		TakesScreenshot TS= (TakesScreenshot)driver;
+//		File Source= TS.getScreenshotAs(OutputType.FILE);
+//				String destinationFile =	System.getProperty("user.dir")+"\\reports\\"+testCaseName+formater.format(calendar.getTime())+"Manu"+".png";
+//		FileUtils.copyFile(Source, new File(destinationFile));
+//		return destinationFile;
+//	}
 
 }

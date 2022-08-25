@@ -24,15 +24,15 @@ public class Listeners extends BrowserInvocation implements ITestListener{
 	@Override
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
-//		WebDriver driver= null;
-//				String testCaseMethod =result.getMethod().getMethodName();
-//				try {
-//					driver =(WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
-//				} catch (Exception e1) {
-//		
-//				}
+	//	WebDriver driver= null;
+				String testCaseMethod =result.getMethod().getMethodName();
 				try {
-					getScreenshot();
+			WebDriver		driver =(WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
+				} catch (Exception e1) {
+		
+				}
+				try {
+					getScreenshot(testCaseMethod,driver);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
